@@ -1,0 +1,282 @@
+/* General Styles */
+body {
+    font-family: "Poiret One", sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+    background-image: url('https://i.imgur.com/eSnsndh.jpeg'); /* Add your image URL here */
+    background-size: cover; /* Ensures the image covers the whole screen */
+    background-position: center; /* Centers the background image */
+    background-attachment: fixed; /* Keeps the image fixed while scrolling */
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Ensures the body fills the full height of the viewport */
+}
+
+
+/* Main content area */
+main {
+    flex-grow: 1; /* Makes sure the main content takes up remaining space */
+}
+
+header {
+    display: flex;
+    justify-content: space-between; /* This will space out the items */
+    align-items: center; /* Vertically centers the items */
+    padding: 0px 40px;
+    background-color: #000;
+}
+
+.logo {
+    width: 200px; /* Adjust the size of the logo */
+    height: auto;
+}
+
+.container {
+    display: flex;
+    justify-content: flex-end; /* Aligns the navigation to the right */
+}
+
+nav {
+    display: flex;
+    gap: 20px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+}
+
+nav a:hover {
+    color: #ff5733;
+}
+/* Section styling */
+.portfolios {
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.portfolios ul {
+    list-style: none;
+    padding: 0;
+}
+
+.portfolios li {
+    margin: 1rem 0;
+}
+
+.portfolios a {
+    text-decoration: none;
+    color: #333;
+    font-weight: bold;
+}
+
+.portfolios a:hover {
+    color: #339cff;
+}
+
+/* Footer */
+footer {
+    background-color: #000;
+    color: rgb(247, 127, 72);
+    text-align: center;
+    padding: 20px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+}
+/* Art Gallery Section */
+.art-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+    max-width: 1000px; /* Adjusted max width */
+    margin: 0 auto;
+}
+
+.art-item {
+    flex: 1 1 calc(33.33% - 20px); /* 3 items per row */
+    border-radius: 8px;
+    overflow: hidden;
+    background-color: #ffffff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.art-item:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+.art-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.art-item:hover img {
+    transform: scale(1.05); /* Zoom effect on hover */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2); /* Subtle shadow on zoom */
+}
+
+.art-item b {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    font-size: 1rem;
+    color: #333;
+    background-color: #f8f8f8;
+    border-top: 1px solid #ddd;
+}
+
+.art-item b a {
+    text-decoration: none;
+    color: #ff5733;
+    transition: color 0.3s ease;
+}
+
+.art-item b a:hover {
+    color: #c13b1a;
+}
+
+/* Responsive Design for Art Gallery */
+@media (max-width: 768px) {
+    .art-item {
+        flex: 1 1 calc(50% - 20px); /* 2 items per row */
+    }
+}
+
+@media (max-width: 480px) {
+    .art-item {
+        flex: 1 1 100%; /* 1 item per row */
+    }
+}
+
+/* General Styles */
+.photo-slider {
+    margin: 2rem auto;
+    text-align: center;
+}
+
+.slider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    max-width: 600px;
+    margin: 2rem auto;
+}
+
+/* Slider Frame (Portrait Orientation) */
+.slider-frame {
+    width: 100%;
+    max-width: 400px; /* Set a smaller width for portrait */
+    height: 600px;    /* Set a taller height for portrait */
+    overflow: hidden;
+    border: 5px solid white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #000;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    border-radius: 8px;
+    position: relative;
+}
+
+
+/* Hover Effect on the Frame */
+.slider-frame:hover {
+    transform: translateY(2px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3); /* Slight increase in shadow on hover */
+}
+
+/* Image Styles */
+/* Image Styles */
+.slider img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    transition: transform 0.5s ease-in-out;
+    opacity: 1;
+}
+
+/* The 'current' image, displayed in the center */
+.slider img.current {
+    transform: translateX(0); /* In the center */
+}
+
+/* The 'next' image, will slide into view */
+.slider img.next {
+    transform: translateX(100%); /* Start off-screen to the right (for next image) */
+}
+
+/* Hover Effect on Image Inside Frame */
+.slider-frame:hover img {
+    transform: scale(1.05); /* Zoom effect */
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3); /* Shadow effect on zoom */
+}
+
+/* Slider Buttons */
+.slider button {
+    position: absolute;
+    top: 40%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.7);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+/* Hover Effect on Buttons */
+.slider button:hover {
+    background-color: rgba(241, 108, 46, 0.8);
+}
+
+/* Positioning Buttons */
+#prev-button {
+    left: -60px;
+}
+
+#next-button {
+    right: -60px;
+}
+
+/*about page layout */
+section {
+    margin: 2rem auto;
+    max-width: 800px;
+    text-align: center;
+}
+
+h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    h2 {
+        font-size: 1.5rem;
+    }
+    p {
+        font-size: 1rem;
+    }
+}
